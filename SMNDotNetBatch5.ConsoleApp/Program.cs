@@ -5,8 +5,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.SqlClient;
 
-Adodotnetexample ado=new Adodotnetexample();
+//Adodotnetexample ado=new Adodotnetexample();
 //ado.Read();
 //ado.Create();
 //ado.Updat();
-ado.Delete();
+//ado.Delete();
+
+DapperExample dpexample=new DapperExample();
+//dpexample.Read();
+dpexample.Creat("Christmax", "William", "Merry Christmas");
