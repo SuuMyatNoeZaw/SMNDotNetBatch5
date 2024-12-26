@@ -13,4 +13,6 @@ using System.Data.SqlClient;
 
 DapperExample dpexample=new DapperExample();
 //dpexample.Read();
-dpexample.Creat("Christmax", "William", "Merry Christmas");
+//dpexample.Creat("Christmax", "William", "Merry Christmas");
+//dpexample.Update(8, "Sweet", "Saint", "Sweet Moments");
+dpexample.Delete(8, "Sweet", "Saint", "Sweet Moments");

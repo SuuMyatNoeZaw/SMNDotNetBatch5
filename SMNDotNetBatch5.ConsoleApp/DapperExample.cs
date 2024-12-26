@@ -18,7 +18,7 @@ namespace SMNDotNetBatch5.ConsoleApp
             using (IDbConnection db = new SqlConnection(_connectionString))
             {
                 string query = "select * from Tbl_Blog where DeleteFlag=0";
-              var lst=  db.Query<BlogDataModel>(query).ToList();
+                var lst = db.Query<BlogDataModel>(query).ToList();
                 foreach (var item in lst)
                 {
                     Console.WriteLine(item.BlogID);
@@ -29,9 +29,9 @@ namespace SMNDotNetBatch5.ConsoleApp
                 }
             }
 
-            
+
         }
-        public void Creat(string title,string author,string content)
+        public void Creat(string title, string author, string content)
         {
             string query = $@"INSERT INTO [dbo].[Tbl_Blog]
            ([BlogTitle]
@@ -45,16 +45,57 @@ namespace SMNDotNetBatch5.ConsoleApp
            ,0)";
             using (IDbConnection db = new SqlConnection(_connectionString))
             {
-               
-               int result= db.Execute(query, new
+
+                int result = db.Execute(query, new
                 {
                     BlogTitle = title,
                     BlogAuthor = author,
                     BlogContent = content,
                 });
-                Console.WriteLine(result==1?"1 row effected.":"Your task is failed.");
+                Console.WriteLine(result == 1 ? "1 row effected." : "Your task is failed.");
             }
 
+        }
+        public void Update(int id, string title, string author, string content)
+        {
+            string query = $@"UPDATE [dbo].[Tbl_Blog]
+   SET [BlogTitle] =@BlogTitle
+      ,[BlogAuthor] =@BlogAuthor
+      ,[BlogContent] =@BLogContent
+      ,[DeleteFlag] =0
+ WHERE BlogID=@BlogID";
+            using (IDbConnection db = new SqlConnection(_connectionString))
+            {
+
+                int result = db.Execute(query, new
+                {
+                    BlogID = id,
+                    BlogTitle = title,
+                    BlogAuthor = author,
+                    BlogContent = content,
+                }) ;
+                Console.WriteLine(result == 1 ? "1 row effected." : "Your task is failed.");
+            }
+        }
+        public void Delete(int id,string title,string author,string content)
+        {
+            string query = $@"UPDATE [dbo].[Tbl_Blog]
+   SET [BlogTitle] =@BlogTitle
+      ,[BlogAuthor] =@BlogAuthor
+      ,[BlogContent] =@BLogContent
+      ,[DeleteFlag] =1
+ WHERE BlogID=@BlogID";
+            using(IDbConnection db=new SqlConnection(_connectionString))
+            {
+                int result = db.Execute(query, new 
+                { 
+                BlogID=id,
+                BlogTitle=title,
+                BlogAuthor=author,
+                BlogContent=content,
+                });
+                Console.WriteLine(result == 1 ? "1 row effected." : "Your task is failed");
+            }
         }
     }
 }
