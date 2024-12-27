@@ -11,8 +11,11 @@ using System.Data.SqlClient;
 //ado.Updat();
 //ado.Delete();
 
-DapperExample dpexample=new DapperExample();
+//DapperExample dpexample=new DapperExample();
 //dpexample.Read();
 //dpexample.Creat("Christmax", "William", "Merry Christmas");
 //dpexample.Update(8, "Sweet", "Saint", "Sweet Moments");
-dpexample.Delete(8, "Sweet", "Saint", "Sweet Moments");
+//dpexample.Delete(8, "Sweet", "Saint", "Sweet Moments");
+
+EFCoreExample eFCoreExample = new EFCoreExample();
+eFCoreExample.Read();
