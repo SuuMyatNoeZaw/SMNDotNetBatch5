@@ -18,4 +18,5 @@ using System.Data.SqlClient;
 //dpexample.Delete(8, "Sweet", "Saint", "Sweet Moments");
 
 EFCoreExample eFCoreExample = new EFCoreExample();
-eFCoreExample.Read();
+//eFCoreExample.Read();
+eFCoreExample.Create("Forever", "NineOne", "Forever Young");

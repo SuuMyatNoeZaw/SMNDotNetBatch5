@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SMNDotNetBatch5.ConsoleApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,19 @@ namespace SMNDotNetBatch5.ConsoleApp
                 Console.WriteLine(item.BlogContent);
                 Console.WriteLine(item.DeleteFlag);
             }
+        }
+        public void Create(string title,string author,string content)
+        {
+            BlogDataModel blog = new BlogDataModel
+            {
+                BlogTitle = title,
+                BlogAuthor = author,
+                BlogContent = content
+            };
+            AppDbContext db=new AppDbContext();
+            db.Blogs.Add(blog);
+            int result=db.SaveChanges();
+            Console.WriteLine(result==1?"1 rows effected.":"Your task is failed.");
         }
     }
 }
