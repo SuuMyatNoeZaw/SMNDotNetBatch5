@@ -19,4 +19,6 @@ using System.Data.SqlClient;
 
 EFCoreExample eFCoreExample = new EFCoreExample();
 //eFCoreExample.Read();
-eFCoreExample.Create("Forever", "NineOne", "Forever Young");
+//eFCoreExample.Create("Forever", "NineOne", "Forever Young");
+//eFCoreExample.Edit(5);
+eFCoreExample.Update(9,"NewYear","Neon","New Year Event");
