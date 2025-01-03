@@ -5,7 +5,9 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMNDotNetBatch5.ConsoleApp", "SMNDotNetBatch5.ConsoleApp\SMNDotNetBatch5.ConsoleApp.csproj", "{0F77E5FE-0EAB-4208-9ACC-EB6D01C249DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMNDotNetBatch5.Database", "SMNDotNetBatch5.Database\SMNDotNetBatch5.Database.csproj", "{5646C0A7-210F-4602-949C-1B149C8FE386}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMNDotNetBatch5.Database", "SMNDotNetBatch5.Database\SMNDotNetBatch5.Database.csproj", "{5646C0A7-210F-4602-949C-1B149C8FE386}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMNDotNetBatch5.ConsoleApp2", "SMNDotNetBatch5.ConsoleApp2\SMNDotNetBatch5.ConsoleApp2.csproj", "{332E17E2-7EB1-4B4D-B7CF-2FB82E03C710}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5646C0A7-210F-4602-949C-1B149C8FE386}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5646C0A7-210F-4602-949C-1B149C8FE386}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5646C0A7-210F-4602-949C-1B149C8FE386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{332E17E2-7EB1-4B4D-B7CF-2FB82E03C710}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{332E17E2-7EB1-4B4D-B7CF-2FB82E03C710}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{332E17E2-7EB1-4B4D-B7CF-2FB82E03C710}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{332E17E2-7EB1-4B4D-B7CF-2FB82E03C710}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
