@@ -17,7 +17,14 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<TblBlog> TblBlogs { get; set; }
 
-   
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+       if(!optionsBuilder.IsConfigured) 
+        {
+            string connectionString = "Data Source=WINDOWS-1ISKG05\\SQLEXPRESS; Initial Catalog=DotNetTrainingBatch5;Trusted_Connection=True;TrustServerCertificate=True;";
+            optionsBuilder.UseSqlServer(connectionString);
+        }
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

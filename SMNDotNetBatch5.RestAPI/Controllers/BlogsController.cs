@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SMNDotNetBatch5.Database.Models;
 
 namespace SMNDotNetBatch5.RestAPI.Controllers
 {
@@ -7,10 +9,12 @@ namespace SMNDotNetBatch5.RestAPI.Controllers
     [ApiController]
     public class BlogsController : ControllerBase
     {
+      private readonly  AppDbContext _db=new AppDbContext();
         [HttpGet]
         public IActionResult GetBlogs()
         {
-            return Ok();
+            var list = _db.TblBlogs.AsNoTracking().ToList();
+            return Ok(list);
         }
 
         [HttpPost]
