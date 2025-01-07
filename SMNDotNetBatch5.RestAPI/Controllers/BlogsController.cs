@@ -17,6 +17,17 @@ namespace SMNDotNetBatch5.RestAPI.Controllers
             return Ok(list);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult CreateBlogs(int id)
+        {
+            var item=_db.TblBlogs.AsNoTracking().FirstOrDefault(x=>x.BlogId == id);
+            if(item is null)
+            {
+                return NotFound();
+            }
+            return Ok(item);
+        }
+
         [HttpPost]
         public IActionResult CreateBlogs()
         {
