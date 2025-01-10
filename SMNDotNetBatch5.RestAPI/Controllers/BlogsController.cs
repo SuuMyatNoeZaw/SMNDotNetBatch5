@@ -38,7 +38,7 @@ namespace SMNDotNetBatch5.RestAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult CreateBlogs(int id,TblBlog blog)
+        public IActionResult UpdateBlogs(int id,TblBlog blog)
         {
             var item = _db.TblBlogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
             if (item is null)
