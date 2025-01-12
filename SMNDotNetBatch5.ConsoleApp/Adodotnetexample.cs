@@ -83,7 +83,7 @@ namespace SMNDotNetBatch5.ConsoleApp
             Console.WriteLine(result == 1 ? "1 row effected" : "Your tast is fill.");
         }
 
-        public void Updat()
+        public void Update()
         {
             Console.WriteLine("Enter ID...");
             string id = Console.ReadLine();
