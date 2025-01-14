@@ -75,10 +75,7 @@ namespace SMNDotNetBatch5.ConsoleApp
             }
             db.Entry(item).State = EntityState.Modified;
            int result= db.SaveChanges();
-            Console.WriteLine(item.BlogID);
-            Console.WriteLine(item.BlogTitle);
-            Console.WriteLine(item.BlogAuthor);
-            Console.WriteLine(item.BlogContent);
+            
             Console.WriteLine(result==1?"1 row effected.":"Your task is failed.");
         }
 
