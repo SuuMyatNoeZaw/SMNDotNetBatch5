@@ -47,5 +47,31 @@ namespace SMNDotNetBatch5.RestAPI.Controllers
             connection.Close();
             return Ok(list);
         }
+
+        [HttpPost]
+        public IActionResult Create(BlogViewModel blog)
+        {
+            SqlConnection connection = new SqlConnection(_connectionString);
+            connection.Open();
+            string query = $@"INSERT INTO [dbo].[Tbl_Blog]
+           ([BlogTitle]
+           ,[BlogAuthor]
+           ,[BlogContent]
+           ,[DeleteFlag])
+     VALUES
+           (@BlogTitle
+           ,@BlogAuthor
+           ,@BlogContent
+           ,0)";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@BlogTitle", blog.Title);
+            cmd.Parameters.AddWithValue("@BlogAuthor", blog.Author);
+            cmd.Parameters.AddWithValue("@BlogContent", blog.Content);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+            return Ok();
+        }
     }
 }
