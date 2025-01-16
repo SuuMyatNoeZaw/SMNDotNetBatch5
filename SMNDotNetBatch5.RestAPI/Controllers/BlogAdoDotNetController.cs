@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using SMNDotNetBatch5.Database.Models;
 using SMNDotNetBatch5.RestAPI.ViewModels;
 using System.Data;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace SMNDotNetBatch5.RestAPI.Controllers
 {
@@ -16,7 +18,7 @@ namespace SMNDotNetBatch5.RestAPI.Controllers
         {
             List<BlogViewModel> list = new List<BlogViewModel>();
             SqlConnection connection = new SqlConnection(_connectionString);
-            
+
             connection.Open();
             string query = @"SELECT[BlogID]
             ,[BlogTitle]
@@ -27,7 +29,7 @@ namespace SMNDotNetBatch5.RestAPI.Controllers
 
             SqlCommand cmd = new SqlCommand(query, connection);
             SqlDataReader reader = cmd.ExecuteReader();
-           while (reader.Read())
+            while (reader.Read())
             {
                 Console.WriteLine(reader["BlogID"]);
                 Console.WriteLine(reader["BlogTitle"]);
@@ -43,7 +45,7 @@ namespace SMNDotNetBatch5.RestAPI.Controllers
                     DeleteFlag = Convert.ToBoolean(reader["DeleteFlag"]),
                 });
             }
-            
+
             connection.Close();
             return Ok(list);
         }
@@ -72,6 +74,39 @@ namespace SMNDotNetBatch5.RestAPI.Controllers
             cmd.ExecuteNonQuery();
             connection.Close();
             return Ok();
+        }
+
+        [HttpPut("{id}")]
+        
+        public IActionResult Edit(int id)
+        {
+            SqlConnection connection = new SqlConnection(_connectionString);
+            connection.Open();
+            string query = @"SELECT [BlogID]
+      ,[BlogTitle]
+      ,[BlogAuthor]
+      ,[BlogContent]
+      ,[DeleteFlag]
+  FROM [dbo].[Tbl_Blog] where BlogID=@BlogID";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@BlogID", id);
+           SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            connection.Close();
+            if(dt.Rows.Count == 0)
+            {
+                Console.WriteLine("No Data Found.");
+            }
+
+            DataRow dr = dt.Rows[0];
+            BlogViewModel model = new BlogViewModel();
+            model.Id = Convert.ToInt32(dr["BlogID"]);
+            model.Title = Convert.ToString(dr["BlogTitle"]);
+            model.Author = Convert.ToString(dr["BlogAuthor"]);
+            model.Content = Convert.ToString(dr["BlogContent"]);
+            model.DeleteFlag = Convert.ToBoolean(dr["DeleteFlag"]);
+            return Ok(model);
         }
     }
 }
