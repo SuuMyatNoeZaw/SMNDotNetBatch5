@@ -108,5 +108,29 @@ namespace SMNDotNetBatch5.RestAPI.Controllers
             model.DeleteFlag = Convert.ToBoolean(dr["DeleteFlag"]);
             return Ok(model);
         }
+        [HttpPatch("{id}")]
+        public IActionResult Update(int id,BlogViewModel blog) 
+        {
+            SqlConnection connection=new SqlConnection(_connectionString);
+            connection.Open();
+            string query = $@"UPDATE [dbo].[Tbl_Blog]
+   SET [BlogTitle] =@BlogTitle
+      ,[BlogAuthor] =@BlogAuthor
+      ,[BlogContent] =@BLogContent
+      ,[DeleteFlag] =0
+ WHERE BlogID=@BlogID";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@BlogID", id);
+            cmd.Parameters.AddWithValue("@BlogTitle", blog.Title);
+            cmd.Parameters.AddWithValue("@BlogAuthor", blog.Author);
+            cmd.Parameters.AddWithValue("@BlogContent", blog.Content);
+
+            int result = cmd.ExecuteNonQuery();
+            Console.WriteLine(result == 1 ? "1 Row Updated." : "Your task is failed.");
+
+            connection.Close();
+            return Ok(result);
+        }
     }
 }
