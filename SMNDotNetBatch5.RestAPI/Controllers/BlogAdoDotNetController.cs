@@ -77,7 +77,7 @@ namespace SMNDotNetBatch5.RestAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        
+
         public IActionResult Edit(int id)
         {
             SqlConnection connection = new SqlConnection(_connectionString);
@@ -90,11 +90,11 @@ namespace SMNDotNetBatch5.RestAPI.Controllers
   FROM [dbo].[Tbl_Blog] where BlogID=@BlogID";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@BlogID", id);
-           SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             connection.Close();
-            if(dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
                 Console.WriteLine("No Data Found.");
             }
@@ -108,29 +108,56 @@ namespace SMNDotNetBatch5.RestAPI.Controllers
             model.DeleteFlag = Convert.ToBoolean(dr["DeleteFlag"]);
             return Ok(model);
         }
+       
         [HttpPatch("{id}")]
-        public IActionResult Update(int id,BlogViewModel blog) 
+       public IActionResult PatchBlog(int id, BlogViewModel blog)
         {
-            SqlConnection connection=new SqlConnection(_connectionString);
+            string condition = "";
+            if(!string.IsNullOrEmpty(blog.Title))
+            {
+                condition += "[BlogTitle] =@BlogTitle, ";
+            }
+            if (!string.IsNullOrEmpty(blog.Author))
+            {
+                condition += "[BlogAuthor] =@BlogAuthor, ";
+            }
+            if (!string.IsNullOrEmpty(blog.Content))
+            {
+                condition += "[BlogContent] =@BLogContent, ";
+            }
+
+            if(condition.Length ==0) 
+            {
+                return BadRequest("Invalid Parameters.");
+            }
+
+            condition=condition.Substring(0, condition.Length-2);
+            SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
-            string query = $@"UPDATE [dbo].[Tbl_Blog]
-   SET [BlogTitle] =@BlogTitle
-      ,[BlogAuthor] =@BlogAuthor
-      ,[BlogContent] =@BLogContent
-      ,[DeleteFlag] =0
- WHERE BlogID=@BlogID";
+            string query = $@"UPDATE [dbo].[Tbl_Blog] SET {condition} WHERE BlogID=@BlogID";
 
             SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@BlogID", id);
-            cmd.Parameters.AddWithValue("@BlogTitle", blog.Title);
-            cmd.Parameters.AddWithValue("@BlogAuthor", blog.Author);
-            cmd.Parameters.AddWithValue("@BlogContent", blog.Content);
+           
+                cmd.Parameters.AddWithValue("@BlogID", id);
+            
+            if (!string.IsNullOrEmpty(blog.Title))
+            {
+                cmd.Parameters.AddWithValue("@BlogTitle", blog.Title);
+            }
+            if (!string.IsNullOrEmpty(blog.Author))
+            {
+                cmd.Parameters.AddWithValue("@BlogAuthor", blog.Author);
+            }
+            if (!string.IsNullOrEmpty(blog.Content))
+            {
+                cmd.Parameters.AddWithValue("@BlogContent", blog.Content);
+            }
 
             int result = cmd.ExecuteNonQuery();
-            Console.WriteLine(result == 1 ? "1 Row Updated." : "Your task is failed.");
+         
 
             connection.Close();
-            return Ok(result);
+            return Ok(result > 0 ? "1 Row Updated." : "Your task is failed.");
         }
     }
 }
