@@ -14,8 +14,6 @@ namespace SMNDotNetBatch5.ConsoleApp
         public void Read()
         {
 
-            Console.WriteLine("Hello, World!");
-
             SqlConnection connection = new SqlConnection(_connectionString);
             Console.WriteLine("Connection Opening.....");
             connection.Open();
