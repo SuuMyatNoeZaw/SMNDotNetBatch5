@@ -33,5 +33,28 @@ namespace SMNDotNetBatch5.ConsoleApp
                 Console.WriteLine(dr["BlogContent"]);
             }
         }
+
+
+        public void Edit()
+        {
+            Console.WriteLine("Enter Id");
+           string id= Console.ReadLine();
+            string query = $@"SELECT[BlogID]
+            ,[BlogTitle]
+            ,[BlogAuthor]
+            ,[BlogContent]
+            ,[DeleteFlag]
+        FROM [dbo].[Tbl_Blog] WHERE BlogID=@BlogID";
+            var dt = _adoDotNetService.Query(query, new Parameters
+            {
+                Name = "@BlogID",
+                Value=id
+            }) ;
+            DataRow dr = dt.Rows[0];
+            Console.WriteLine(dr["BlogID"]);
+            Console.WriteLine(dr["BlogTitle"]);
+            Console.WriteLine(dr["BlogAuthor"]);
+            Console.WriteLine(dr["BlogContent"]);
+        }
     }
 }

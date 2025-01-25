@@ -18,7 +18,7 @@ namespace SMNDotNetBatch5.RestAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult CreateBlogs(int id)
+        public IActionResult ReadBlogs(int id)
         {
             var item = _db.TblBlogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
             if (item is null)
@@ -30,7 +30,7 @@ namespace SMNDotNetBatch5.RestAPI.Controllers
 
 
         [HttpPost]
-        public IActionResult UpdateBlogs(TblBlog blog) 
+        public IActionResult CreateBlogs(TblBlog blog) 
         {
             _db.TblBlogs.Add(blog);
             _db.SaveChanges();

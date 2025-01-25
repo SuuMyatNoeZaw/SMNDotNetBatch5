@@ -16,9 +16,12 @@ using System.Data.SqlClient;
 //dpexample.Creat("Christmax", "William", "Merry Christmas");
 //dpexample.Update(8, "Sweet", "Saint", "Sweet Moments");
 //dpexample.Delete(8, "Sweet", "Saint", "Sweet Moments");
-
-EFCoreExample eFCoreExample = new EFCoreExample();
+//EFCoreExample eFCoreExample = new EFCoreExample();
 //eFCoreExample.Read();
 //eFCoreExample.Create("Forever", "NineOne", "Forever Young");
 //eFCoreExample.Edit(5);
-eFCoreExample.Update(9,"NewYear","Neon","New Year Event");
+//eFCoreExample.Update(9,"NewYear","Neon","New Year Event");
+
+AdoDotNetShareExample share=new AdoDotNetShareExample();
+//share.Read();
+share.Edit();

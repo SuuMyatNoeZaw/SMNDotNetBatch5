@@ -13,7 +13,7 @@ namespace SMNDotNetBatch5.Shared
             _connectionString = connectionString;
 
         }
-        public DataTable Query(string query, Parameters[]parameter=null)
+        public DataTable Query(string query,params Parameters[]parameter)
         {
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
