@@ -32,6 +32,23 @@ namespace SMNDotNetBatch5.Shared
             connection.Close();
             return dt;
         }
+        public int Execute(string query, params Parameters[] parameter)
+        {
+            SqlConnection connection = new SqlConnection(_connectionString);
+            connection.Open();
+            SqlCommand cmd = new SqlCommand(query, connection);
+            if (parameter is not null)
+            {
+                foreach (var item in parameter)
+                {
+                    cmd.Parameters.AddWithValue(item.Name, item.Value);
+                }
+            }
+            int result=cmd.ExecuteNonQuery();
+           
+            connection.Close();
+            return result;
+        }
     }
     public class Parameters
     {

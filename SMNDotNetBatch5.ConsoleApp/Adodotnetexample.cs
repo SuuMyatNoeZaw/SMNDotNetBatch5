@@ -140,7 +140,7 @@ namespace SMNDotNetBatch5.ConsoleApp
             cmd.Parameters.AddWithValue("@BlogAuthor", author);
             cmd.Parameters.AddWithValue("@BlogContent", content);
            
-            int result=cmd.ExecuteNonQuery();
+            int result= cmd.ExecuteNonQuery();
             Console.WriteLine(result==1?"1 Row Deleted.":"Your task is failed.");
         }
     }

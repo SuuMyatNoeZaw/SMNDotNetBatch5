@@ -56,5 +56,94 @@ namespace SMNDotNetBatch5.ConsoleApp
             Console.WriteLine(dr["BlogAuthor"]);
             Console.WriteLine(dr["BlogContent"]);
         }
+        public void Create()
+        {
+
+            Console.WriteLine("Enter Title Name...");
+            string title = Console.ReadLine();
+            Console.WriteLine("Enter Author Name...");
+            string author = Console.ReadLine();
+            Console.WriteLine("Enter Content...");
+            string content = Console.ReadLine();
+
+            string query = $@"INSERT INTO [dbo].[Tbl_Blog]
+           ([BlogTitle]
+           ,[BlogAuthor]
+           ,[BlogContent]
+           ,[DeleteFlag])
+     VALUES
+           (@BlogTitle
+           ,@BlogAuthor
+           ,@BlogContent
+           ,0)";
+
+            int result = _adoDotNetService.Execute(query, 
+            new Parameters
+            {
+                Name = "@BlogTitle",
+                Value = title
+            },
+            new Parameters
+            {
+                Name = "@BlogAuthor",
+                Value = author
+            },
+            new Parameters
+            {
+                Name = "@BlogContent",
+                Value = content
+            }
+             );
+
+            Console.WriteLine(result == 1 ? "1 row effected" : "Your tast is fill.");
+        }
+        public void Update()
+        {
+            Console.WriteLine("Enter ID...");
+            string id = Console.ReadLine();
+            Console.WriteLine("Enter Title Name...");
+            string title = Console.ReadLine();
+            Console.WriteLine("Enter Author Name...");
+            string author = Console.ReadLine();
+            Console.WriteLine("Enter Content...");
+            string content = Console.ReadLine();
+
+           
+            string query = $@"UPDATE [dbo].[Tbl_Blog]
+   SET [BlogTitle] =@BlogTitle
+      ,[BlogAuthor] =@BlogAuthor
+      ,[BlogContent] =@BLogContent
+      ,[DeleteFlag] =0
+ WHERE BlogID=@BlogID";
+
+            int result = _adoDotNetService.Execute(query, new Parameters
+            {
+                Name="@BlogID",
+                Value=id
+            },
+            new Parameters
+            {
+                Name = "@BlogTitle",
+                Value = title
+            },
+            new Parameters
+            {
+                Name = "@BlogAuthor",
+                Value = author
+            },
+            new Parameters
+            {
+                Name = "@BlogContent",
+                Value = content
+            }
+             );
+            
+
+            
+            Console.WriteLine(result == 1 ? "1 Row Updated." : "Your task is failed.");
+
+            
+
+        }
     }
 }

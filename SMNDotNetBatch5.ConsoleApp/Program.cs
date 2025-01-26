@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Microsoft.EntityFrameworkCore.Update.Internal;
 using SMNDotNetBatch5.ConsoleApp;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -24,4 +25,7 @@ using System.Data.SqlClient;
 
 AdoDotNetShareExample share=new AdoDotNetShareExample();
 //share.Read();
+//share.Edit();
+//share.Create();
 share.Edit();
+//share.Update();
