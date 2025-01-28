@@ -1,4 +1,5 @@
-﻿using SMNDotNetBatch5.ConsoleApp.Models;
+﻿using Dapper;
+using SMNDotNetBatch5.ConsoleApp.Models;
 using SMNDotNetBatch5.Shared;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,30 @@ namespace SMNDotNetBatch5.ConsoleApp
                 Console.WriteLine(item.BlogContent);
                 Console.WriteLine(item.DeleteFlag);
             
+        }
+        public void Create(string title, string author, string content)
+        {
+            string query = $@"INSERT INTO [dbo].[Tbl_Blog]
+           ([BlogTitle]
+           ,[BlogAuthor]
+           ,[BlogContent]
+           ,[DeleteFlag])
+     VALUES
+           (@BlogTitle
+           ,@BlogAuthor
+           ,@BlogContent
+           ,0)";
+           
+
+                int result = _dapperService.Execute(query, new BlogDapperDataModel
+                {
+                    BlogTitle = title,
+                    BlogAuthor = author,
+                    BlogContent = content,
+                });
+                Console.WriteLine(result == 1 ? "1 row effected." : "Your task is failed.");
+            
+
         }
     }
     

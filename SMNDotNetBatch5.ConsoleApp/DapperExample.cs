@@ -31,7 +31,7 @@ namespace SMNDotNetBatch5.ConsoleApp
 
 
         }
-        public void Creat(string title, string author, string content)
+        public void Create(string title, string author, string content)
         {
             string query = $@"INSERT INTO [dbo].[Tbl_Blog]
            ([BlogTitle]
