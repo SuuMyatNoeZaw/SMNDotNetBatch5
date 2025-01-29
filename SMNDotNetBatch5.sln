@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMNDotNetBatch5.ConsoleApp2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMNDotNetBatch5.RestAPI", "SMNDotNetBatch5.RestAPI\SMNDotNetBatch5.RestAPI.csproj", "{478AA471-55CF-46B7-9900-07307480AE7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMNDotNetBatch5.Shared", "SMNDotNetBatch5.Shared\SMNDotNetBatch5.Shared.csproj", "{6CC2B20C-6603-43FE-A43B-2124C5949640}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMNDotNetBatch5.Shared", "SMNDotNetBatch5.Shared\SMNDotNetBatch5.Shared.csproj", "{6CC2B20C-6603-43FE-A43B-2124C5949640}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMNDotNetBatch5.MinimalApi", "SMNDotNetBatch5.MinimalApi\SMNDotNetBatch5.MinimalApi.csproj", "{1FC0E71E-EB45-487B-A3FF-9F16DA6D6540}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{6CC2B20C-6603-43FE-A43B-2124C5949640}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CC2B20C-6603-43FE-A43B-2124C5949640}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CC2B20C-6603-43FE-A43B-2124C5949640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FC0E71E-EB45-487B-A3FF-9F16DA6D6540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FC0E71E-EB45-487B-A3FF-9F16DA6D6540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FC0E71E-EB45-487B-A3FF-9F16DA6D6540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FC0E71E-EB45-487B-A3FF-9F16DA6D6540}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

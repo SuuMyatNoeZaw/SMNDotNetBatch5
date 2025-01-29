@@ -76,6 +76,26 @@ namespace SMNDotNetBatch5.ConsoleApp
             
 
         }
+        public void Update(int id, string title, string author, string content)
+        {
+            string query = $@"UPDATE [dbo].[Tbl_Blog]
+   SET [BlogTitle] =@BlogTitle
+      ,[BlogAuthor] =@BlogAuthor
+      ,[BlogContent] =@BLogContent
+      ,[DeleteFlag] =0
+ WHERE BlogID=@BlogID";
+           
+
+                int result = _dapperService.Execute(query, new BlogDapperDataModel
+                {
+                    BlogID = id,
+                    BlogTitle = title,
+                    BlogAuthor = author,
+                    BlogContent = content,
+                });
+                Console.WriteLine(result == 1 ? "1 row effected." : "Your task is failed.");
+        }
+
     }
     
 }
