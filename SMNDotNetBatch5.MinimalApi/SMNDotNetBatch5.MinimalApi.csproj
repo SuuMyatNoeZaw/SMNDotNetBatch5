@@ -15,4 +15,8 @@
     <ProjectReference Include="..\SMNDotNetBatch5.Database\SMNDotNetBatch5.Database.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="BlogEndPoint\" />
+  </ItemGroup>
+
 </Project>
