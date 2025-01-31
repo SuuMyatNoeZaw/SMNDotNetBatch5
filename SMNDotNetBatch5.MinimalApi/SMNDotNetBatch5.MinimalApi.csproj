@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BlogEndPoint\" />
+    <Folder Include="BlogEndPoint\User\" />
   </ItemGroup>
 
 </Project>
