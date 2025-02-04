@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMNDotNetBatch5.RestAPI", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMNDotNetBatch5.Shared", "SMNDotNetBatch5.Shared\SMNDotNetBatch5.Shared.csproj", "{6CC2B20C-6603-43FE-A43B-2124C5949640}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMNDotNetBatch5.MinimalApi", "SMNDotNetBatch5.MinimalApi\SMNDotNetBatch5.MinimalApi.csproj", "{1FC0E71E-EB45-487B-A3FF-9F16DA6D6540}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMNDotNetBatch5.MinimalApi", "SMNDotNetBatch5.MinimalApi\SMNDotNetBatch5.MinimalApi.csproj", "{1FC0E71E-EB45-487B-A3FF-9F16DA6D6540}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BairdMinimalApi", "BairdMinimalApi\BairdMinimalApi.csproj", "{14204E11-BDE0-458B-AA0A-66C877FCB7B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{1FC0E71E-EB45-487B-A3FF-9F16DA6D6540}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FC0E71E-EB45-487B-A3FF-9F16DA6D6540}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FC0E71E-EB45-487B-A3FF-9F16DA6D6540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14204E11-BDE0-458B-AA0A-66C877FCB7B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14204E11-BDE0-458B-AA0A-66C877FCB7B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14204E11-BDE0-458B-AA0A-66C877FCB7B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14204E11-BDE0-458B-AA0A-66C877FCB7B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
