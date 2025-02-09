@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMNDotNetBatch5.MinimalApi"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BairdMinimalApi", "BairdMinimalApi\BairdMinimalApi.csproj", "{14204E11-BDE0-458B-AA0A-66C877FCB7B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZodicJsonApi", "ZodicJsonApi\ZodicJsonApi.csproj", "{2180560B-440A-458E-B15C-A51306157E87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZodicJsonApi", "ZodicJsonApi\ZodicJsonApi.csproj", "{2180560B-440A-458E-B15C-A51306157E87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMNDotNetBatch5.Domain", "SMNDotNetBatch5.Domain\SMNDotNetBatch5.Domain.csproj", "{5F487B5E-7E40-48A2-86D5-B0CC606021B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{2180560B-440A-458E-B15C-A51306157E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2180560B-440A-458E-B15C-A51306157E87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2180560B-440A-458E-B15C-A51306157E87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F487B5E-7E40-48A2-86D5-B0CC606021B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F487B5E-7E40-48A2-86D5-B0CC606021B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F487B5E-7E40-48A2-86D5-B0CC606021B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F487B5E-7E40-48A2-86D5-B0CC606021B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
