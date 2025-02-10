@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SMNDotNetBatch5.Domain.Feature.Blog
 {
-    internal class BlogService
+    public class BlogService
     {
         private readonly AppDbContext _db = new AppDbContext();
         public List<TblBlog> GetBlogs()
@@ -43,7 +43,31 @@ namespace SMNDotNetBatch5.Domain.Feature.Blog
             _db.SaveChanges();
             return item;
         }
-        public bool Delete(int id)
+        public TblBlog UpdateByID(int id, TblBlog blog)
+        {
+            var item = _db.TblBlogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
+            if (item != null)
+            {
+                return null;
+            }
+            if(!String.IsNullOrEmpty(blog.BlogTitle))
+            {
+                item.BlogTitle = blog.BlogTitle;
+            }
+           if(!String.IsNullOrEmpty(blog.BlogAuthor))
+            {
+                item.BlogAuthor = blog.BlogAuthor;
+            }
+           if(!String.IsNullOrEmpty(blog.BlogContent))
+            {
+                item.BlogContent = blog.BlogContent;
+            }
+            
+            _db.Entry(item).State = EntityState.Modified;
+            _db.SaveChanges();
+            return item;
+        }
+        public bool? Delete(int id)
         {
             var item = _db.TblBlogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
             if (item != null)
